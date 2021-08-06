@@ -44,8 +44,15 @@ public class C206_CaseStudy {
 		System.out.println("5. Quit");
 
 	}
-	
 
 	
+	public static void loginStudentParentMenu() { //Omar
+		Helper.line(30, "-");
+		System.out.println("School CCA Registration System - Coordinator");
+		Helper.line(30, "-");
 
+		System.out.println("1. Register for CCA");
+		System.out.println("2. View registered CCA");
+		System.out.println("3. Drop CCA");
+	}
 }
