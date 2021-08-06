@@ -5,20 +5,45 @@ public class C206_CaseStudy {
 		// TODO Auto-generated method stub
 
 	int mainMenuOption = 0;
-	while (mainMenuOption != 5) {
+	while (mainMenuOption != 7) {
 		mainMenu();
 		mainMenuOption = Helper.readInt("Enter an option > ");
+		
+		if (mainMenuOption == 1) {
+			loginAdministratorMenu();
+		} else if (mainMenuOption == 2) {
+			loginCoordinatorMenu();
+		} else if (mainMenuOption == 3) {
+			loginStudentParentMenu();
+		} else if (mainMenuOption == 4) {
+
+		}
 	}
 	
 		
 	}
-	public static void loginMenu() {
+	public static void loginMenu() { //xixin
 		Helper.line(30, "-");
 		System.out.println("School CCA Registration System - LOGIN");
 		Helper.line(30, "-");
 	}
 
-	public static void mainMenu() {
+	public static void mainMenu() { //xixin
+
+		Helper.line(30, "-");
+		System.out.println("School CCA Registration System");
+		Helper.line(30, "-");
+
+		System.out.println("1. Login as administrator");
+		System.out.println("2. Login as coordinator");
+		System.out.println("3. Login as student or parent");
+		System.out.println("4. Registration to System");
+		System.out.println("5. View all CCAs");
+		System.out.println("6. View all CCA category");
+		System.out.println("7. Quit");
+
+	}
+	public static void loginAdministratorMenu() { //xixin
 
 		Helper.line(30, "-");
 		System.out.println("School CCA Registration System");
@@ -31,20 +56,7 @@ public class C206_CaseStudy {
 		System.out.println("5. Quit");
 
 	}
-	public static void loginAdministratorMenu() {
-
-		Helper.line(30, "-");
-		System.out.println("School CCA Registration System");
-		Helper.line(30, "-");
-
-		System.out.println("1. Login as administrator");
-		System.out.println("2. Login as coordinator");
-		System.out.println("3. Login as student or parent");
-		System.out.println("4. Registration to System");
-		System.out.println("5. Quit");
-
-	}
-	public static void loginCoordinatorMenu() {
+	public static void loginCoordinatorMenu() { //xixin
 
 		Helper.line(30, "-");
 		System.out.println("School CCA Registration System - Coordinator");
@@ -55,7 +67,7 @@ public class C206_CaseStudy {
 		System.out.println("3. Quit");
 
 	}
-	public static void manageCCAMenu() {
+	public static void manageCCAMenu() { //xixin
 
 		Helper.line(30, "-");
 		System.out.println("Manage CCAs");
@@ -66,10 +78,11 @@ public class C206_CaseStudy {
 		System.out.println("3. Add CCA details");
 		System.out.println("4. Delete CCA");
 		System.out.println("5. Add CCA category");
+		System.out.println("5. Delete CCA category");
 		System.out.println("6. Quit");
 
 	}
-	public static void manageRegistrationMenu() {
+	public static void manageRegistrationMenu() { //xixin
 
 		Helper.line(30, "-");
 		System.out.println("Manage Registrations");
