@@ -161,49 +161,63 @@ public class C206_CaseStudy {
 			coordOption = Helper.readInt("Enter option: > ");
 			
 			switch (coordOption) {
-				case 1:
-					//manage CCAs
-					int coordOptionCCA = 0;
-					while (coordOptionCCA != 6) {					
-						manageCCAMenu();
+			case 1:
+				//manage CCAs
+				int coordOptionCCA = 0;
+				while (coordOptionCCA != 7) {					
+					manageCCAMenu();
+					
+					coordOptionCCA = Helper.readInt("Enter option: > ");
+					
+					switch (coordOptionCCA) {
+					case 1:
+						// view all ccas
+						C206_CaseStudy.viewAllCCA(ccaList);
+						break;
+					case 2:
+						// View all CCA category
 						
-						coordOptionCCA = Helper.readInt("Enter option: > ");
-						
-						switch (coordOptionCCA) {
-						case 1:
-							// view all ccas
-							C206_CaseStudy.viewAllCCA(ccaList);
-							break;
-						case 2:
-							// add ccas
-							break;
-						case 3:
-							// delete ccas
-							break;
-						default:
-							if (coordOptionCCA != 6) {
-								System.out.println("Invalid input");
-							}
+						break;
+					case 3:
+						// Add CCA details
+						CCA cca = inputCCA();
+						C206_CaseStudy.addCCA(ccaList, cca);
+						break;
+					case 4:
+						// Delete CCA
+						break;
+					case 5:
+						// Add CCA category
+						break;
+					case 6:
+						// Delete CCA category
+						break;
+					default:
+						if (coordOptionCCA != 7) {
+							System.out.println("Invalid input");
+						}
 
-							break;
-						}					
-					}
-					break;
-				case 2:
-					//manage registration
-					break;
-				default:
-					if (coordOption != 3) {
-						System.out.println("Invalid input");
-					}
-					break;
+						break;
+					}					
 				}
+				break;
+			case 2:
+				//manage registration
+				break;
+			default:
+				if (coordOption != 3) {
+					System.out.println("Invalid input");
+				}
+				break;
 			}
+		}
 
-		}
-		else {
-			System.out.println("Invalid Username or Password");
-		}
+	}
+	else {
+		System.out.println("Invalid Username or Password");
+	}
+										
+						
 	}
 
 	public static void manageCCAMenu() { // xixin
@@ -217,8 +231,8 @@ public class C206_CaseStudy {
 		System.out.println("3. Add CCA details");
 		System.out.println("4. Delete CCA");
 		System.out.println("5. Add CCA category");
-		System.out.println("5. Delete CCA category");
-		System.out.println("6. Quit");
+		System.out.println("6. Delete CCA category");
+		System.out.println("7. Quit");
 
 	}
 
@@ -274,5 +288,24 @@ public class C206_CaseStudy {
 		 */
 		private static void setHeader(String string) {
 			// TODO Auto-generated method stub
+		}
+		//================================= Coordinator option 1 / Option 3 Add CCA details)=================================
+		public static CCA inputCCA() {
+			String ccaTitle = Helper.readString("Enter title > ");
+			String ccaDescrip = Helper.readString("Enter description > ");
+			int ccaClassSize = Helper.readInt("Enter class size > ");
+			String ccaDay = Helper.readString("Enter day > ");
+			String ccaTime = Helper.readString("Enter time (hh.mm - hh.mm) > ");
+			String ccaVenu = Helper.readString("Enter venu > ");
+			String ccaInstructor = Helper.readString("Enter instructor-in-charge > ");
+
+				CCA cca= new CCA(ccaTitle, ccaDescrip, ccaClassSize, ccaDay, ccaTime, ccaVenu, ccaInstructor);
+				return cca;
+					
+		}
+		public static void addCCA(ArrayList<CCA> ccaList, CCA cca) {
+					
+			ccaList.add(cca);
+			System.out.println("CCA added!");
 		}
 }
