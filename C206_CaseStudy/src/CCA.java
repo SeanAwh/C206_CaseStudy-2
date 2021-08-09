@@ -1,18 +1,3 @@
-/*
- * I declare that this code was written by me. 
- * I will not copy or allow others to copy my code. 
- * I understand that copying code is considered as plagiarism.
- * 
- * Student Name: Liew Xi Xin
- * Student ID: 20019652
- * Class: W66F
- * Date/Time created: Monday 09-08-2021 14:46
- */
-
-/**
- * @author 20019652 xixin
- *
- */
 public class CCA {
     private String title;
     private String description;
