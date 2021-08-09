@@ -3,16 +3,16 @@ import java.util.ArrayList;
 public class C206_CaseStudy {
 
 	static ArrayList<Student> studentList = new ArrayList<Student>();
+	static ArrayList<CCA> ccaList = new ArrayList<CCA>();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ArrayList<CCA> ccaList = new ArrayList<CCA>();
-
+/*
 		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
 				"Thursday", "3.00pm - 4.00pm", "Class room A", "Albert"));
 		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
 				"Wednesday","3.00pm - 4.00pm", "Class room B", "Malvin"));
-
+*/
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
 			mainMenu();
@@ -24,8 +24,10 @@ public class C206_CaseStudy {
 				loginCoordinatorMenu();
 			} else if (mainMenuOption == 3) {
 				loginStudentParentMenu();
+			} else if (mainMenuOption == 4) {
+				//
 			} else if (mainMenuOption == 5) {
-				manageCCAMenu();
+				C206_CaseStudy.viewAllCCA(ccaList);
 			}
 		}
 
@@ -101,12 +103,6 @@ public class C206_CaseStudy {
 
 	////////// Coordinator menu //////////
 	public static void loginCoordinatorMenu() { // xixin
-		ArrayList<CCA> ccaList = new ArrayList<CCA>();
-
-		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
-				"Thursday", "15:00 - 16:00", "Class room A", "Albert"));
-		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
-				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
 
 		Helper.line(30, "-");
 		System.out.println("Coordinator login");
@@ -116,16 +112,16 @@ public class C206_CaseStudy {
 		String coordPass = Helper.readString("Enter Password: > ");
 
 		if (coordUser.equals("coordinator") && coordPass.equals("coordinator")) {
-
-		System.out.println("1. Manage CCAs");
-		System.out.println("2. Manage Registration");
-		System.out.println("3. Quit");
 		
 		int coordOption = 0;
 		while (coordOption != 3) {
 			Helper.line(30, "-");
 			System.out.println("Coordinator Menu");
 			Helper.line(30, "-");
+			
+			System.out.println("1. Manage CCAs");
+			System.out.println("2. Manage Registration");
+			System.out.println("3. Quit");
 			
 			coordOption = Helper.readInt("Enter option: > ");
 			
