@@ -1,7 +1,7 @@
 public class CCA {
     private String title;
     private String description;
-    private String classSize;
+    private int classSize;
 	private String ccaDay;
 	private String ccaTime;
 	private String venu;
@@ -15,7 +15,7 @@ public class CCA {
 	 * @param venu
 	 * @param instructorName
 	 */
-	public CCA(String title, String description, String classSize, String ccaDay, String ccaTime, String venu,
+	public CCA(String title, String description, int classSize, String ccaDay, String ccaTime, String venu,
 			String instructorName) {
 		this.title = title;
 		this.description = description;
@@ -31,7 +31,7 @@ public class CCA {
     public String getDescription() {
    	 return description;
     }
-    public String getClassSize() {
+    public int getClassSize() {
    	 return classSize;
     }
     public String getCcaDay() {
@@ -46,4 +46,9 @@ public class CCA {
     public String getInstructorName() {
    	 return instructorName;
     }
+    public String toString(){
+		String output = "";
+		// Write your codes here
+		return output;
+	}
 }
