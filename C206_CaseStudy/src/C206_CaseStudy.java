@@ -290,7 +290,7 @@ public class C206_CaseStudy {
 			// TODO Auto-generated method stub
 		}
 		//================================= Coordinator option 1 / Option 3 Add CCA details)=================================
-		public static CCA inputCCA() { //xixin
+		public static CCA inputCCA() { // xixin
 			String ccaTitle = Helper.readString("Enter title > ");
 			String ccaDescrip = Helper.readString("Enter description > ");
 			int ccaClassSize = Helper.readInt("Enter class size > ");
