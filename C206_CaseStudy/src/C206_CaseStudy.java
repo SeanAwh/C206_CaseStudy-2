@@ -327,7 +327,7 @@ public class C206_CaseStudy {
 				CCA cca= new CCA(ccaTitle, ccaDescrip, ccaClassSize, ccaDay, ccaTime, ccaVenu, ccaInstructor);
 				return cca;
 					
-		}
+		} 
 		public static void addCCA(ArrayList<CCA> ccaList, CCA cca) {
 					
 			ccaList.add(cca);
