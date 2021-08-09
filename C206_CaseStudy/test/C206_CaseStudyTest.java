@@ -9,8 +9,9 @@ import org.junit.Test;
 public class C206_CaseStudyTest {
 	private CCA cca1;
 	private CCA cca2;
-	
+	private Student stud1;
 	private ArrayList<CCA> ccaList;
+	private ArrayList<Student> studentList;
 
 	@Before
 	public void setUp() throws Exception {
@@ -21,6 +22,9 @@ public class C206_CaseStudyTest {
 				"Wednesday","15:00 - 16:00", "Class room B", "Malvin");
 		
 		ccaList= new ArrayList<CCA>();
+		
+		stud1 = new Student(1,"John","P3","C206","Desmond");
+		studentList= new ArrayList<Student>();
 	}
 
 	@Test
@@ -95,6 +99,66 @@ public class C206_CaseStudyTest {
 		
 	}
 	*/
+	
+	@Test
+	public void addStudentTest() {
+		//boundary
+		assertNotNull("Test if there is valid Student arraylist to add to", studentList);
+		assertEquals("Check that student array list is empty", 0,studentList.size());
+
+		//normal
+		C206_CaseStudy.addStudent(studentList, stud1);
+		assertEquals("Test after student added list has 1 input", 1,studentList.size());
+		
+		//normal
+		assertSame("Check that correct input inserted",stud1, studentList.get(0));
+	}
+	
+	@Test
+	public void deleteStudentTest() {
+		//boundary
+		assertNotNull("Test if there is valid Student arraylist to add to", studentList);
+		assertEquals("Check that student array list is empty", 0,studentList.size());
+
+		//normal
+		C206_CaseStudy.addStudent(studentList, stud1);
+		assertEquals("Test after student added list has 1 input", 1,studentList.size());
+		
+		//error
+		C206_CaseStudy.deleteStudent(studentList,2);
+		String deleteStudent= C206_CaseStudy.deleteStudent(studentList,2);
+		String errorMsg = "Invalid student ID";
+		assertEquals("Test that error message inavlid student id shows if no matching id to delete", errorMsg, deleteStudent);
+		
+		//normal
+		C206_CaseStudy.deleteStudent(studentList,1);
+		assertEquals("Test that after deleting student, student array list is empty",0,studentList.size());
+
+	}
+	
+	@Test
+	public void viewStudentTest() {
+		//boundary
+		assertNotNull("Test if there is valid Student arraylist to add to", studentList);
+		assertEquals("Check that student array list is empty", 0,studentList.size());
+
+		//error
+		String viewStudent = C206_CaseStudy.adminViewStudent(studentList);
+		String result = "Student list is empty";
+		assertEquals("Test that if student array list is empty show Student list is empty", viewStudent,result);
+		
+		//normal
+		C206_CaseStudy.addStudent(studentList, stud1);
+		assertEquals("Test after student added list has 1 input", 1,studentList.size());
+		
+		//normal
+		viewStudent = C206_CaseStudy.adminViewStudent(studentList);
+		result = String.format("%-20s %-20s %-10s %-10s %-10s\n", "Student ID", "Student Name", "Grade",
+				"Class", "Teacher");
+		result += String.format("%-20d %-20s %-10s %-10s %-10s\n", 1,"John", "P3","C206", "Desmond");
+		assertEquals("Test that student inserted correctly",viewStudent,result);
+
+	}
 	@After
 	public void tearDown() throws Exception {
 		cca1 = null;

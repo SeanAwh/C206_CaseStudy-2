@@ -14,6 +14,7 @@ public class C206_CaseStudy {
 		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
 				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
 
+		studentList.add(new Student(1,"John","P3","C206","Desmond")) ;
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
 			mainMenu();
@@ -44,7 +45,7 @@ public class C206_CaseStudy {
 						switch (adminOption) {
 						case 1:
 							// view all student
-							adminViewStudent(studentList);
+							System.out.println(adminViewStudent(studentList));
 							break;
 						case 2:
 							// add student
@@ -235,41 +236,48 @@ public class C206_CaseStudy {
 	}
 
 	///////// Admin View all students /////////
-	public static void adminViewStudent(ArrayList<Student> studentList) { // Sean
+	public static String adminViewStudent(ArrayList<Student> studentList) { // Sean
 		Helper.line(30, "-");
 		System.out.println("List of students in database");
 		Helper.line(30, "-");
-		String display = String.format("%-20s %-20s %-10s %-10s %-10s\n", "Student ID", "Student Name", "Grade",
-				"Class", "Teacher");
-
+		String display = "";
 		if (!studentList.isEmpty()) {
+			display += String.format("%-20s %-20s %-10s %-10s %-10s\n", "Student ID", "Student Name", "Grade",
+					"Class", "Teacher");
 			for (int i = 0; i < studentList.size(); i++) {
 
 				display += String.format("%-20d %-20s %-10s %-10s %-10s\n", studentList.get(i).getId(),
 						studentList.get(i).getStudentName(), studentList.get(i).getGrade(),
 						studentList.get(i).getClassId(), studentList.get(i).getTeacherName());
-
 			}
 		} else {
 			display += "Student list is empty";
 		}
-		System.out.println(display);
+		return display;
 	}
+	
+	
 	///////// Admin delete student /////////
 	public static void adminDeleteStudent(ArrayList<Student> studentList) { // Sean
-		adminViewStudent(studentList);
+		System.out.println(adminViewStudent(studentList));
 		System.out.println("---------Delete Student----------");
 		int studentID = Helper.readInt("Student ID: > ");
+		System.out.println(deleteStudent(studentList, studentID));
+	}
+	
+	public static String deleteStudent(ArrayList<Student> studentList, int id) {
+		String info ="";
 		for(int i = 0; i < studentList.size(); i++) {
-			if (studentList.get(i).getId() == studentID) {
+			if (studentList.get(i).getId() == id) {
 				studentList.remove(i);
-				System.out.println("Removed student: "+studentID);
+				info += "Removed student: "+id;
 				break;
 			}
 			else {
-				System.out.println("Invalid student ID");
+				info = "Invalid student ID";
 			}
 		}
+		return info;
 	}
 	
 	
