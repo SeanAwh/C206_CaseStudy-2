@@ -99,37 +99,6 @@ public class C206_CaseStudy {
 
 	}
 
-	////////// Admin add student method //////////
-	public static void adminAddStudent() { // Sean
-		System.out.println("Enter the following");
-		int studentID = Helper.readInt("Student ID: > ");
-		String studentName = Helper.readString("Student Name: > ");
-		String studentGrade = Helper.readString("Student Grade: > ");
-		String studentClass = Helper.readString("Student Class: > ");
-		String studentTeacher = Helper.readString("Student Teacher: > ");
-
-		studentList.add(new Student(studentID, studentName, studentGrade, studentClass, studentTeacher));
-	}
-
-	public static void adminViewStudent() { //Sean
-		Helper.line(30, "-");
-		System.out.println("List of students in database");
-		Helper.line(30, "-");
-		String display = String.format("%-20s %-20s %-20s %-20s %-20s\n", "Student ID","Student Name", "Grade","Class","Teacher");
-		
-		if (!studentList.isEmpty()) {
-			for (int i = 0; i < studentList.size(); i++) {
-				
-				display += String.format("%-20d %-20s %-20s %-20s %-20s\n", studentList.get(i).getId(),studentList.get(i).getStudentName(),studentList.get(i).getGrade(),studentList.get(i).getClassId(),studentList.get(i).getTeacherName());
-				
-			}
-		}
-		else {
-			display += "Student list is empty";
-		}
-		System.out.println(display);
-	}
-
 	////////// Coordinator menu //////////
 	public static void loginCoordinatorMenu() { // xixin
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
@@ -257,6 +226,58 @@ public class C206_CaseStudy {
 		System.out.println("2. View registered CCA");
 		System.out.println("3. Drop CCA");
 	}
+	
+	//================================= Admin menu options =================================
+	////////// Admin add student method //////////
+	public static void adminAddStudent() { // Sean
+		System.out.println("Enter the following");
+		int studentID = Helper.readInt("Student ID: > ");
+		String studentName = Helper.readString("Student Name: > ");
+		String studentGrade = Helper.readString("Student Grade: > ");
+		String studentClass = Helper.readString("Student Class: > ");
+		String studentTeacher = Helper.readString("Student Teacher: > ");
+
+		studentList.add(new Student(studentID, studentName, studentGrade, studentClass, studentTeacher));
+	}
+	///////// Admin View all students /////////
+	public static void adminViewStudent() { // Sean
+		Helper.line(30, "-");
+		System.out.println("List of students in database");
+		Helper.line(30, "-");
+		String display = String.format("%-20s %-20s %-10s %-10s %-10s\n", "Student ID", "Student Name", "Grade",
+				"Class", "Teacher");
+
+		if (!studentList.isEmpty()) {
+			for (int i = 0; i < studentList.size(); i++) {
+
+				display += String.format("%-20d %-20s %-10s %-10s %-10s\n", studentList.get(i).getId(),
+						studentList.get(i).getStudentName(), studentList.get(i).getGrade(),
+						studentList.get(i).getClassId(), studentList.get(i).getTeacherName());
+
+			}
+		} else {
+			display += "Student list is empty";
+		}
+		System.out.println(display);
+	}
+	///////// Admin delete student /////////
+	public static void adminDeleteStudent() { // 
+		adminViewStudent();
+		System.out.println("---------Delete Student----------");
+		int studentID = Helper.readInt("Student ID: > ");
+		for(int i = 0; i < studentList.size(); i++) {
+			if (studentList.get(i).getId() == studentID) {
+				studentList.remove(i);
+				System.out.println("Removed student: "+studentID);
+				break;
+			}
+			else {
+				System.out.println("Invalid student ID");
+			}
+		}
+	}
+	
+	
 	//================================= Option 1 View all CCAs (LoginCoordinator Option 2 - Manage CCAs) =================================
 		public static String retrieveAllCCA(ArrayList<CCA> ccaList) { //xixin
 			String output = "";
