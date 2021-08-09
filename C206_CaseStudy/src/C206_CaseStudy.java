@@ -1,5 +1,8 @@
+import java.util.ArrayList;
 
 public class C206_CaseStudy {
+
+	static ArrayList<Student> studentList = new ArrayList<Student>();
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -59,16 +62,18 @@ public class C206_CaseStudy {
 				System.out.println("1. View all students");
 				System.out.println("2. Add students");
 				System.out.println("3. Delete student");
-				System.out.println("4. Quit");
+				System.out.println("4. Logout");
 
 				adminOption = Helper.readInt("Enter option: > ");
 
 				switch (adminOption) {
 				case 1:
 					// view all student
+					adminViewStudent();
 					break;
 				case 2:
 					// add student
+					adminAddStudent();
 					break;
 				case 3:
 					// delete student
@@ -82,11 +87,41 @@ public class C206_CaseStudy {
 				}
 			}
 
-		}
-		else {
+		} else {
 			System.out.println("Invalid Username or Password");
 		}
 
+	}
+
+	////////// Admin add student method //////////
+	public static void adminAddStudent() { // Sean
+		System.out.println("Enter the following");
+		int studentID = Helper.readInt("Student ID: > ");
+		String studentName = Helper.readString("Student Name: > ");
+		String studentGrade = Helper.readString("Student Grade: > ");
+		String studentClass = Helper.readString("Student Class: > ");
+		String studentTeacher = Helper.readString("Student Teacher: > ");
+
+		studentList.add(new Student(studentID, studentName, studentGrade, studentClass, studentTeacher));
+	}
+
+	public static void adminViewStudent() { //Sean
+		Helper.line(30, "-");
+		System.out.println("List of students in database");
+		Helper.line(30, "-");
+		String display = String.format("%-20s %-20s %-20s %-20s %-20s\n", "Student ID","Student Name", "Grade","Class","Teacher");
+		
+		if (!studentList.isEmpty()) {
+			for (int i = 0; i < studentList.size(); i++) {
+				
+				display += String.format("%-20d %-20s %-20s %-20s %-20s\n", studentList.get(i).getId(),studentList.get(i).getStudentName(),studentList.get(i).getGrade(),studentList.get(i).getClassId(),studentList.get(i).getTeacherName());
+				
+			}
+		}
+		else {
+			display += "Student list is empty";
+		}
+		System.out.println(display);
 	}
 
 	////////// Coordinator menu //////////
