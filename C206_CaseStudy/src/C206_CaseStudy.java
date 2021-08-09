@@ -1,8 +1,16 @@
+import java.util.ArrayList;
 
 public class C206_CaseStudy {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayList<CCA> ccaList = new ArrayList<CCA>();
+
+		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
+				"Thursday", "3.00pm - 4.00pm", "Class room A", "Albert"));
+		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
+				"Wednesday","3.00pm - 4.00pm", "Class room B", "Malvin"));
+
 
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
@@ -15,8 +23,12 @@ public class C206_CaseStudy {
 				loginCoordinatorMenu();
 			} else if (mainMenuOption == 3) {
 				loginStudentParentMenu();
-			} else if (mainMenuOption == 4) {
-
+			} else if (mainMenuOption == 5) {
+				manageCCAMenu();
+				int manageCCAMenuOption = 0;
+				if (manageCCAMenuOption == 1) {
+					C206_CaseStudy.viewAllCCA(ccaList);
+				}
 			}
 		}
 
@@ -139,4 +151,36 @@ public class C206_CaseStudy {
 		System.out.println("2. View registered CCA");
 		System.out.println("3. Drop CCA");
 	}
+	//================================= Option 1 View all CCAs (LoginCoordinator Option 2 - Manage CCAs) =================================
+		public static String retrieveAllCCA(ArrayList<CCA> ccaList) {
+			String output = "";
+
+			for (int i = 0; i < ccaList.size(); i++) {
+
+				String title = ccaList.get(i).getTitle();
+				String description = ccaList.get(i).getDescription();
+				int classSize = ccaList.get(i).getClassSize();
+				String ccaDay = ccaList.get(i).getCcaDay();
+				String ccaTime = ccaList.get(i).getCcaTime();
+				String venu = ccaList.get(i).getVenu();
+				String instructorName = ccaList.get(i).getInstructorName();
+				output += String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-10s\n", title ,description, classSize, 
+						ccaDay, ccaTime, venu, instructorName);
+			}
+			return output;
+		}
+		public static void viewAllCCA(ArrayList<CCA> ccaList) {
+			C206_CaseStudy.setHeader("CCA LIST");
+			String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "TITLE", "DESCRIPTION",
+					"CLASS SIZE", "DAY","TIME", "VENU", "INSTRUCTOR-IN-CHARGE");
+			 output += retrieveAllCCA(ccaList);	
+			System.out.println(output);
+		}
+
+		/**
+		 * @param string
+		 */
+		private static void setHeader(String string) {
+			// TODO Auto-generated method stub
+		}
 }
