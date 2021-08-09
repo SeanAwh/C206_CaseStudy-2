@@ -10,16 +10,16 @@ public class C206_CaseStudy {
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
 
 		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
-				"Thursday", "3.00pm - 4.00pm", "Class room A", "Albert"));
+				"Thursday", "15:00 - 16:00", "Class room A", "Albert"));
 		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
-				"Wednesday","3.00pm - 4.00pm", "Class room B", "Malvin"));
+				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
 
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
 			mainMenu();
 			mainMenuOption = Helper.readInt("Enter an option > ");
 
-			if (mainMenuOption == 1) { ///////////////////////////// Option 1
+			if (mainMenuOption == 1) { ///////////////////////////// Option 1 Sean
 				Helper.line(30, "-");
 				System.out.println("Admin login");
 				Helper.line(30, "-");
@@ -27,7 +27,7 @@ public class C206_CaseStudy {
 				String adminUser = Helper.readString("Enter Username: > ");
 				String adminPass = Helper.readString("Enter Password: > ");
 
-				if (adminUser.equals("admin") && adminPass.equals("admin")) {
+				if (adminUser.equals("admin") && adminPass.equals("admin")) { // Sean
 					int adminOption = 0;
 					while (adminOption != 4) {
 						Helper.line(30, "-");
@@ -68,7 +68,86 @@ public class C206_CaseStudy {
 				}
 				
 			} else if (mainMenuOption == 2) { ///////////////////////////// Option 2
-				loginCoordinatorMenu();
+				Helper.line(30, "-");
+				System.out.println("Coordinator login");
+				Helper.line(30, "-");
+
+				String coordUser = Helper.readString("Enter Username: > ");
+				String coordPass = Helper.readString("Enter Password: > ");
+
+				if (coordUser.equals("coordinator") && coordPass.equals("coordinator")) {
+
+				
+				int coordOption = 0;
+				while (coordOption != 3) {
+					Helper.line(30, "-");
+					System.out.println("Coordinator Menu");
+					Helper.line(30, "-");
+					
+					System.out.println("1. Manage CCAs");
+					System.out.println("2. Manage Registration");
+					System.out.println("3. Logout");
+					
+					coordOption = Helper.readInt("Enter option: > ");
+					
+					switch (coordOption) {
+					case 1:
+						//manage CCAs
+						int coordOptionCCA = 0;
+						while (coordOptionCCA != 7) {					
+							manageCCAMenu();
+							
+							coordOptionCCA = Helper.readInt("Enter option: > ");
+							
+							switch (coordOptionCCA) {
+							case 1:
+								// view all ccas
+								C206_CaseStudy.viewAllCCA(ccaList);
+								break;
+							case 2:
+								// View all CCA category
+								
+								break;
+							case 3:
+								// Add CCA details
+								CCA cca = inputCCA();
+								C206_CaseStudy.addCCA(ccaList, cca);
+								break;
+							case 4:
+								// Delete CCA
+								C206_CaseStudy.coordDeleteCCA(ccaList);
+								break;
+							case 5:
+								// Add CCA category
+								break;
+							case 6:
+								// Delete CCA category
+								break;
+							default:
+								if (coordOptionCCA != 7) {
+									System.out.println("Invalid input");
+								}
+
+								break;
+							}					
+						}
+						break;
+					case 2:
+						//manage registration
+						break;
+					default:
+						if (coordOption != 3) {
+							System.out.println("Invalid input");
+						}
+						break;
+					}
+				}
+
+			}
+			else {
+				System.out.println("Invalid Username or Password");
+			}
+				
 			} else if (mainMenuOption == 3) { ///////////////////////////// Option 3
 				loginStudentParentMenu();
 			} else if (mainMenuOption == 4) { ///////////////////////////// Option 4
@@ -95,96 +174,8 @@ public class C206_CaseStudy {
 
 	}
 
-	////////// Coordinator menu //////////
-	public static void loginCoordinatorMenu() { // xixin
-		ArrayList<CCA> ccaList = new ArrayList<CCA>();
 
-		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
-				"Thursday", "15:00 - 16:00", "Class room A", "Albert"));
-		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
-				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
-
-		Helper.line(30, "-");
-		System.out.println("Coordinator login");
-		Helper.line(30, "-");
-
-		String coordUser = Helper.readString("Enter Username: > ");
-		String coordPass = Helper.readString("Enter Password: > ");
-
-		if (coordUser.equals("coordinator") && coordPass.equals("coordinator")) {
-
-		System.out.println("1. Manage CCAs");
-		System.out.println("2. Manage Registration");
-		System.out.println("3. Quit");
-		
-		int coordOption = 0;
-		while (coordOption != 3) {
-			Helper.line(30, "-");
-			System.out.println("Coordinator Menu");
-			Helper.line(30, "-");
-			
-			coordOption = Helper.readInt("Enter option: > ");
-			
-			switch (coordOption) {
-			case 1:
-				//manage CCAs
-				int coordOptionCCA = 0;
-				while (coordOptionCCA != 7) {					
-					manageCCAMenu();
-					
-					coordOptionCCA = Helper.readInt("Enter option: > ");
-					
-					switch (coordOptionCCA) {
-					case 1:
-						// view all ccas
-						C206_CaseStudy.viewAllCCA(ccaList);
-						break;
-					case 2:
-						// View all CCA category
-						
-						break;
-					case 3:
-						// Add CCA details
-						CCA cca = inputCCA();
-						C206_CaseStudy.addCCA(ccaList, cca);
-						break;
-					case 4:
-						// Delete CCA
-						break;
-					case 5:
-						// Add CCA category
-						break;
-					case 6:
-						// Delete CCA category
-						break;
-					default:
-						if (coordOptionCCA != 7) {
-							System.out.println("Invalid input");
-						}
-
-						break;
-					}					
-				}
-				break;
-			case 2:
-				//manage registration
-				break;
-			default:
-				if (coordOption != 3) {
-					System.out.println("Invalid input");
-				}
-				break;
-			}
-		}
-
-	}
-	else {
-		System.out.println("Invalid Username or Password");
-	}
-										
-						
-	}
-
+	
 	public static void manageCCAMenu() { // xixin
 
 		Helper.line(30, "-");
@@ -282,8 +273,9 @@ public class C206_CaseStudy {
 	}
 	
 	
-	//================================= Option 1 View all CCAs (LoginCoordinator Option 2 - Manage CCAs) =================================
-		public static String retrieveAllCCA(ArrayList<CCA> ccaList) { //xixin
+	//================================= Coordinator menu options =================================
+    //////// Coordinator View all CCAs /////////	
+	public static String retrieveAllCCA(ArrayList<CCA> ccaList) { //xixin
 			String output = "";
 
 			for (int i = 0; i < ccaList.size(); i++) {
@@ -314,7 +306,7 @@ public class C206_CaseStudy {
 		private static void setHeader(String string) {
 			// TODO Auto-generated method stub
 		}
-		//================================= Coordinator option 1 / Option 3 Add CCA details)=================================
+        ////////Coordinator Add a CCA /////////
 		public static CCA inputCCA() { // xixin
 			String ccaTitle = Helper.readString("Enter title > ");
 			String ccaDescrip = Helper.readString("Enter description > ");
@@ -332,5 +324,21 @@ public class C206_CaseStudy {
 					
 			ccaList.add(cca);
 			System.out.println("CCA added!");
+		}
+        ////////Coordinator Delete a CCA /////////
+		public static void coordDeleteCCA(ArrayList<CCA> ccaList) { // 
+			viewAllCCA(ccaList);
+			System.out.println("---------Delete CCA----------");
+			String ccaTitle = Helper.readString("CCA Title: > ");
+			for(int i = 0; i < ccaList.size(); i++) {
+				if (ccaList.get(i).getTitle().equals(ccaTitle)) {
+					ccaList.remove(i);
+					System.out.println("Removed cca: "+ccaTitle);
+					break;
+				}
+				else {
+					System.out.println("Invalid cca title");
+				}
+			}
 		}
 }
