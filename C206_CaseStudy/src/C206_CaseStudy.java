@@ -258,7 +258,7 @@ public class C206_CaseStudy {
 		System.out.println("3. Drop CCA");
 	}
 	//================================= Option 1 View all CCAs (LoginCoordinator Option 2 - Manage CCAs) =================================
-		public static String retrieveAllCCA(ArrayList<CCA> ccaList) {
+		public static String retrieveAllCCA(ArrayList<CCA> ccaList) { //xixin
 			String output = "";
 
 			for (int i = 0; i < ccaList.size(); i++) {
@@ -290,7 +290,7 @@ public class C206_CaseStudy {
 			// TODO Auto-generated method stub
 		}
 		//================================= Coordinator option 1 / Option 3 Add CCA details)=================================
-		public static CCA inputCCA() {
+		public static CCA inputCCA() { //xixin
 			String ccaTitle = Helper.readString("Enter title > ");
 			String ccaDescrip = Helper.readString("Enter description > ");
 			int ccaClassSize = Helper.readInt("Enter class size > ");
