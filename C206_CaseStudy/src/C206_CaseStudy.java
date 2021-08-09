@@ -135,9 +135,9 @@ public class C206_CaseStudy {
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
 
 		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
-				"Thursday", "3.00pm - 4.00pm", "Class room A", "Albert"));
+				"Thursday", "15:00 - 16:00", "Class room A", "Albert"));
 		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
-				"Wednesday","3.00pm - 4.00pm", "Class room B", "Malvin"));
+				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
 
 		Helper.line(30, "-");
 		System.out.println("Coordinator login");
@@ -295,7 +295,7 @@ public class C206_CaseStudy {
 			String ccaDescrip = Helper.readString("Enter description > ");
 			int ccaClassSize = Helper.readInt("Enter class size > ");
 			String ccaDay = Helper.readString("Enter day > ");
-			String ccaTime = Helper.readString("Enter time (hh.mm - hh.mm) > ");
+			String ccaTime = Helper.readString("Enter time (hh:mm - hh:mm) > ");
 			String ccaVenu = Helper.readString("Enter venu > ");
 			String ccaInstructor = Helper.readString("Enter instructor-in-charge > ");
 
