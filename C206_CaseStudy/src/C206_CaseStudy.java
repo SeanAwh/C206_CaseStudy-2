@@ -11,7 +11,6 @@ public class C206_CaseStudy {
 		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
 				"Wednesday","3.00pm - 4.00pm", "Class room B", "Malvin"));
 
-
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
 			mainMenu();
@@ -99,6 +98,12 @@ public class C206_CaseStudy {
 
 	////////// Coordinator menu //////////
 	public static void loginCoordinatorMenu() { // xixin
+		ArrayList<CCA> ccaList = new ArrayList<CCA>();
+
+		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
+				"Thursday", "3.00pm - 4.00pm", "Class room A", "Albert"));
+		ccaList.add(new CCA("Jewellery Making", "Make a variety of jewellery items",15,
+				"Wednesday","3.00pm - 4.00pm", "Class room B", "Malvin"));
 
 		Helper.line(30, "-");
 		System.out.println("Coordinator login");
@@ -120,29 +125,51 @@ public class C206_CaseStudy {
 			Helper.line(30, "-");
 			
 			coordOption = Helper.readInt("Enter option: > ");
-
+			
 			switch (coordOption) {
-			case 1:
-				// view all ccas
-				C206_CaseStudy.viewAllCCA(ccaList));
-				break;
-			case 2:
-				// add ccas
-				break;
-			case 3:
-				// delete ccas
-				break;
-			default:
-				if (coordOption != 4) {
-					System.out.println("Invalid input");
+				case 1:
+					//manage CCAs
+					int coordOptionCCA = 0;
+					while (coordOptionCCA != 6) {					
+						manageCCAMenu();
+						
+						coordOptionCCA = Helper.readInt("Enter option: > ");
+						
+						switch (coordOptionCCA) {
+						case 1:
+							// view all ccas
+							C206_CaseStudy.viewAllCCA(ccaList);
+							break;
+						case 2:
+							// add ccas
+							break;
+						case 3:
+							// delete ccas
+							break;
+						default:
+							if (coordOptionCCA != 6) {
+								System.out.println("Invalid input");
+							}
+
+							break;
+						}					
+					}
+					break;
+				case 2:
+					//manage registration
+					break;
+				default:
+					if (coordOption != 3) {
+						System.out.println("Invalid input");
+					}
+					break;
 				}
-
-				break;
 			}
-		}
-		}
-		
 
+		}
+		else {
+			System.out.println("Invalid Username or Password");
+		}
 	}
 
 	public static void manageCCAMenu() { // xixin
