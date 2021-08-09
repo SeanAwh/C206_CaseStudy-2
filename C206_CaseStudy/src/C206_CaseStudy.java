@@ -2,10 +2,11 @@ import java.util.ArrayList;
 
 public class C206_CaseStudy {
 
-	static ArrayList<Student> studentList = new ArrayList<Student>();
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		ArrayList<Student> studentList = new ArrayList<Student>();
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
 
 		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
@@ -18,13 +19,59 @@ public class C206_CaseStudy {
 			mainMenu();
 			mainMenuOption = Helper.readInt("Enter an option > ");
 
-			if (mainMenuOption == 1) {
-				loginAdministratorMenu();
-			} else if (mainMenuOption == 2) {
+			if (mainMenuOption == 1) { ///////////////////////////// Option 1
+				Helper.line(30, "-");
+				System.out.println("Admin login");
+				Helper.line(30, "-");
+
+				String adminUser = Helper.readString("Enter Username: > ");
+				String adminPass = Helper.readString("Enter Password: > ");
+
+				if (adminUser.equals("admin") && adminPass.equals("admin")) {
+					int adminOption = 0;
+					while (adminOption != 4) {
+						Helper.line(30, "-");
+						System.out.println("Admin Menu");
+						Helper.line(30, "-");
+
+						System.out.println("1. View all students");
+						System.out.println("2. Add students");
+						System.out.println("3. Delete student");
+						System.out.println("4. Logout");
+
+						adminOption = Helper.readInt("Enter option: > ");
+
+						switch (adminOption) {
+						case 1:
+							// view all student
+							adminViewStudent(studentList);
+							break;
+						case 2:
+							// add student
+							addStudent(studentList, adminAddStudent());
+							break;
+						case 3:
+							// delete student
+							adminDeleteStudent(studentList);
+							break;
+						default:
+							if (adminOption != 4) {
+								System.out.println("Invalid input");
+							}
+
+							break;
+						}
+					}
+
+				} else {
+					System.out.println("Invalid Username or Password");
+				}
+				
+			} else if (mainMenuOption == 2) { ///////////////////////////// Option 2
 				loginCoordinatorMenu();
-			} else if (mainMenuOption == 3) {
+			} else if (mainMenuOption == 3) { ///////////////////////////// Option 3
 				loginStudentParentMenu();
-			} else if (mainMenuOption == 5) {
+			} else if (mainMenuOption == 4) { ///////////////////////////// Option 4
 				manageCCAMenu();
 			}
 		}
@@ -45,57 +92,6 @@ public class C206_CaseStudy {
 		System.out.println("5. View all CCAs");
 		System.out.println("6. View all CCA category");
 		System.out.println("7. Quit");
-
-	}
-
-	////////// Admin menu //////////
-	public static void loginAdministratorMenu() { // Sean
-
-		Helper.line(30, "-");
-		System.out.println("Admin login");
-		Helper.line(30, "-");
-
-		String adminUser = Helper.readString("Enter Username: > ");
-		String adminPass = Helper.readString("Enter Password: > ");
-
-		if (adminUser.equals("admin") && adminPass.equals("admin")) {
-			int adminOption = 0;
-			while (adminOption != 4) {
-				Helper.line(30, "-");
-				System.out.println("Admin Menu");
-				Helper.line(30, "-");
-
-				System.out.println("1. View all students");
-				System.out.println("2. Add students");
-				System.out.println("3. Delete student");
-				System.out.println("4. Logout");
-
-				adminOption = Helper.readInt("Enter option: > ");
-
-				switch (adminOption) {
-				case 1:
-					// view all student
-					adminViewStudent();
-					break;
-				case 2:
-					// add student
-					adminAddStudent();
-					break;
-				case 3:
-					// delete student
-					break;
-				default:
-					if (adminOption != 4) {
-						System.out.println("Invalid input");
-					}
-
-					break;
-				}
-			}
-
-		} else {
-			System.out.println("Invalid Username or Password");
-		}
 
 	}
 
@@ -229,18 +225,26 @@ public class C206_CaseStudy {
 	
 	//================================= Admin menu options =================================
 	////////// Admin add student method //////////
-	public static void adminAddStudent() { // Sean
+	public static Student adminAddStudent() { // Sean
 		System.out.println("Enter the following");
 		int studentID = Helper.readInt("Student ID: > ");
 		String studentName = Helper.readString("Student Name: > ");
 		String studentGrade = Helper.readString("Student Grade: > ");
 		String studentClass = Helper.readString("Student Class: > ");
 		String studentTeacher = Helper.readString("Student Teacher: > ");
-
-		studentList.add(new Student(studentID, studentName, studentGrade, studentClass, studentTeacher));
+		
+		Student stud = new Student(studentID, studentName, studentGrade, studentClass, studentTeacher);
+		return stud;
 	}
+	
+	public static void addStudent(ArrayList<Student> studentList, Student stud) {
+		
+		studentList.add(stud);
+		System.out.println("Student added");
+	}
+
 	///////// Admin View all students /////////
-	public static void adminViewStudent() { // Sean
+	public static void adminViewStudent(ArrayList<Student> studentList) { // Sean
 		Helper.line(30, "-");
 		System.out.println("List of students in database");
 		Helper.line(30, "-");
@@ -261,8 +265,8 @@ public class C206_CaseStudy {
 		System.out.println(display);
 	}
 	///////// Admin delete student /////////
-	public static void adminDeleteStudent() { // 
-		adminViewStudent();
+	public static void adminDeleteStudent(ArrayList<Student> studentList) { // Sean
+		adminViewStudent(studentList);
 		System.out.println("---------Delete Student----------");
 		int studentID = Helper.readInt("Student ID: > ");
 		for(int i = 0; i < studentList.size(); i++) {
