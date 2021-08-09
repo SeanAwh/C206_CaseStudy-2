@@ -222,15 +222,15 @@ public class C206_CaseStudy {
 				String ccaTime = ccaList.get(i).getCcaTime();
 				String venu = ccaList.get(i).getVenu();
 				String instructorName = ccaList.get(i).getInstructorName();
-				output += String.format("%-10s %-30s %-10d %-10s %-20s %-10s %-10s\n", title ,description, classSize, 
+				output += String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s\n", title ,description, classSize, 
 						ccaDay, ccaTime, venu, instructorName);
 			}
 			return output;
 		}
 		public static void viewAllCCA(ArrayList<CCA> ccaList) {
 			C206_CaseStudy.setHeader("CCA LIST");
-			String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "TITLE", "DESCRIPTION",
-					"CLASS SIZE", "DAY","TIME", "VENU", "INSTRUCTOR-IN-CHARGE");
+			String output = String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s\n", "TITLE", "DESCRIPTION","CLASS SIZE", 
+					"DAY","TIME", "VENU", "INSTRUCTOR-IN-CHARGE");
 			 output += retrieveAllCCA(ccaList);	
 			System.out.println(output);
 		}
