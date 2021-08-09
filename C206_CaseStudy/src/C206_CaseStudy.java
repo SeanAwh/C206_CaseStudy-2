@@ -25,10 +25,6 @@ public class C206_CaseStudy {
 				loginStudentParentMenu();
 			} else if (mainMenuOption == 5) {
 				manageCCAMenu();
-				int manageCCAMenuOption = 0;
-				if (manageCCAMenuOption == 1) {
-					C206_CaseStudy.viewAllCCA(ccaList);
-				}
 			}
 		}
 
@@ -105,12 +101,47 @@ public class C206_CaseStudy {
 	public static void loginCoordinatorMenu() { // xixin
 
 		Helper.line(30, "-");
-		System.out.println("School CCA Registration System - Coordinator");
+		System.out.println("Coordinator login");
 		Helper.line(30, "-");
+
+		String coordUser = Helper.readString("Enter Username: > ");
+		String coordPass = Helper.readString("Enter Password: > ");
+
+		if (coordUser.equals("coordinator") && coordPass.equals("coordinator")) {
 
 		System.out.println("1. Manage CCAs");
 		System.out.println("2. Manage Registration");
 		System.out.println("3. Quit");
+		
+		int coordOption = 0;
+		while (coordOption != 3) {
+			Helper.line(30, "-");
+			System.out.println("Coordinator Menu");
+			Helper.line(30, "-");
+			
+			coordOption = Helper.readInt("Enter option: > ");
+
+			switch (coordOption) {
+			case 1:
+				// view all ccas
+				C206_CaseStudy.viewAllCCA(ccaList));
+				break;
+			case 2:
+				// add ccas
+				break;
+			case 3:
+				// delete ccas
+				break;
+			default:
+				if (coordOption != 4) {
+					System.out.println("Invalid input");
+				}
+
+				break;
+			}
+		}
+		}
+		
 
 	}
 
