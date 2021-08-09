@@ -150,6 +150,7 @@ public class C206_CaseStudy {
 						break;
 					case 4:
 						// Delete CCA
+						//C206_CaseStudy.coordDeleteCCA();
 						break;
 					case 5:
 						// Add CCA category
@@ -274,7 +275,8 @@ public class C206_CaseStudy {
 	}
 	
 	
-	//================================= Option 1 View all CCAs (LoginCoordinator Option 2 - Manage CCAs) =================================
+	//================================= Coordinator menu options =================================
+    //////// Coordinator View all CCAs /////////
 		public static String retrieveAllCCA(ArrayList<CCA> ccaList) { //xixin
 			String output = "";
 
@@ -306,7 +308,7 @@ public class C206_CaseStudy {
 		private static void setHeader(String string) {
 			// TODO Auto-generated method stub
 		}
-		//================================= Coordinator option 1 / Option 3 Add CCA details)=================================
+        ////////Coordinator Add a CCA /////////
 		public static CCA inputCCA() { // xixin
 			String ccaTitle = Helper.readString("Enter title > ");
 			String ccaDescrip = Helper.readString("Enter description > ");
@@ -324,5 +326,21 @@ public class C206_CaseStudy {
 					
 			ccaList.add(cca);
 			System.out.println("CCA added!");
+		}
+        ////////Coordinator Delete a CCA /////////
+		public static void coordDeleteCCA() { // 
+			adminViewStudent();
+			System.out.println("---------Delete CCA----------");
+			String ccaTitle = Helper.readString("CCA Title: > ");
+			for(int i = 0; i < studentList.size(); i++) {
+				if (ccaList.get(i).getTitle() == ccaTitle) {
+					ccaList.remove(i);
+					System.out.println("Removed cca: "+ccaTitle);
+					break;
+				}
+				else {
+					System.out.println("Invalid cca title");
+				}
+			}
 		}
 }
