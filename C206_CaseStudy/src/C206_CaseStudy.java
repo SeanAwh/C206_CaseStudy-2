@@ -46,12 +46,12 @@ public class C206_CaseStudy {
 		System.out.println("Admin login");
 		Helper.line(30, "-");
 
-		String adminUser = Helper.readString("Enter Username: >");
-		String adminPass = Helper.readString("Enter Password: >");
+		String adminUser = Helper.readString("Enter Username: > ");
+		String adminPass = Helper.readString("Enter Password: > ");
 
 		if (adminUser.equals("admin") && adminPass.equals("admin")) {
-			int option = 0;
-			while (option == 0) {
+			int adminOption = 0;
+			while (adminOption != 4) {
 				Helper.line(30, "-");
 				System.out.println("Admin Menu");
 				Helper.line(30, "-");
@@ -60,8 +60,31 @@ public class C206_CaseStudy {
 				System.out.println("2. Add students");
 				System.out.println("3. Delete student");
 				System.out.println("4. Quit");
+
+				adminOption = Helper.readInt("Enter option: > ");
+
+				switch (adminOption) {
+				case 1:
+					// view all student
+					break;
+				case 2:
+					// add student
+					break;
+				case 3:
+					// delete student
+					break;
+				default:
+					if (adminOption != 4) {
+						System.out.println("Invalid input");
+					}
+
+					break;
+				}
 			}
 
+		}
+		else {
+			System.out.println("Invalid Username or Password");
 		}
 
 	}
