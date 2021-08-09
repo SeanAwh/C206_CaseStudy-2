@@ -127,7 +127,7 @@ public class C206_CaseStudy {
 		else {
 			display += "Student list is empty";
 		}
-		System.out.println(display);
+		System.out.println(display); 
 	}
 
 	////////// Coordinator menu //////////
