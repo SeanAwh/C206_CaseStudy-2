@@ -328,7 +328,7 @@ public class C206_CaseStudy {
 			System.out.println("CCA added!");
 		}
         ////////Coordinator Delete a CCA /////////
-		public static void coordDeleteCCA() { // 
+		public static void coordDeleteCCA() { // xixin
 			adminViewStudent();
 			System.out.println("---------Delete CCA----------");
 			String ccaTitle = Helper.readString("CCA Title: > ");
