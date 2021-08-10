@@ -434,12 +434,30 @@ public class C206_CaseStudy {
 			studentList.add(studentReg);
 			System.out.println("Student account registered successful!");
 		}
-        ////////View registered parent/student /////////
+        ////////View registered parent /////////
+		public static String retrieveAllParentRegistration(ArrayList<Student> parentList) { //xixin
+			String output = "";
+
+			for (int i = 0; i < parentList.size(); i++) {
+
+				int id = parentList.get(i).getId();
+				String studentName = parentList.get(i).getStudentName();
+				String grade = parentList.get(i).getGrade();
+				String classId = parentList.get(i).getClassId();
+				String teacher = parentList.get(i).getTeacherName();
+				String parentName = parentList.get(i).getParentName();
+				String email = parentList.get(i).getEmail();
+				int contactNo = parentList.get(i).getNumber();
+				output += String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s\n", id ,studentName, grade, 
+						classId, teacher, parentName, email, contactNo);
+			}
+			return output;
+		}
 	    public static void viewParentRegister(ArrayList<Student> parentList, Student parentReg) {
 			C206_CaseStudy.setHeader("REGISTERED PARENTS/STUDENT LIST");
 			String output = String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s %-15s\n", "Student ID", "Student Name","Grade", 
 					"Class","Teacher", "Parent Name", "Email", "Contact Number");
-			output += parentRegister(parentList);	
+			output += retrieveAllParentRegistration(parentList);	
 			System.out.println(output);
 		}
 	        
