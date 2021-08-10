@@ -387,4 +387,22 @@ public class C206_CaseStudy {
 			}
 			return displayMssg;
 		}
-}
+		//================================= Student/Parent registration menu options =================================
+	    //////// Parent register /////////	
+/*
+		public static CCA parentRegister() { // hint for bazlyn
+			// int id, String studentName, String grade, String classId, String teacherName, String parentName,
+			// String email, int number
+
+				//Student parentReg= new Student(variables for id, studentName, grade, classId, teacherName, parentName,
+			    // email, number);
+				//return parentReg;
+					
+		} 
+		public static void addParent(ArrayList<Student> parentList, Student parentReg) {
+					
+			parentList.add(parentReg);
+			System.out.println("Parent account registered successful!");
+		}
+*/       
+	}
