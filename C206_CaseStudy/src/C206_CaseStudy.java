@@ -138,12 +138,34 @@ public class C206_CaseStudy {
 						break;
 					case 2:
 						//manage registration
-						break;
+						manageRegistrationMenu();
+						int coordOptionReg = 0;
+						while (coordOptionReg != 3) {
+							viewRegistrationMenu();
+							coordOptionReg = Helper.readInt("Enter option: > ");
+							
+							switch (coordOptionReg) {
+							case 1:
+								// view all registered parent
+								C206_CaseStudy.viewParentRegister(parentList);
+								break;
+							case 2:
+								// View all registered student
+								//C206_CaseStudy.viewStudentRegister(studentList);
+								break;
+							default:
+								if (coordOptionReg != 7) {
+									System.out.println("Invalid input");
+								}
+
+								break;
+							}
+						}	
 					default:
 						if (coordOption != 3) {
 							System.out.println("Invalid input");
 						}
-						break;
+						break;		
 					}
 				}
 
@@ -237,6 +259,17 @@ public class C206_CaseStudy {
 
 		System.out.println("1. View all Registrations");
 		System.out.println("2. Change registration status");
+		System.out.println("3. Quit");
+
+	}
+	public static void viewRegistrationMenu() { // xixin
+
+		Helper.line(30, "-");
+		System.out.println("View Registrations");
+		Helper.line(30, "-");
+
+		System.out.println("1. View parent registrations");
+		System.out.println("2. View student registrations");
 		System.out.println("3. Quit");
 
 	}
@@ -448,14 +481,14 @@ public class C206_CaseStudy {
 				String parentName = parentList.get(i).getParentName();
 				String email = parentList.get(i).getEmail();
 				int contactNo = parentList.get(i).getNumber();
-				output += String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s\n", id ,studentName, grade, 
+				output += String.format("%-10s %-15s %-15s %-15s %-10s %-10s %-20s %-15s\n", id ,studentName, grade, 
 						classId, teacher, parentName, email, contactNo);
 			}
 			return output;
 		}
-	    public static void viewParentRegister(ArrayList<Student> parentList, Student parentReg) {
+	    public static void viewParentRegister(ArrayList<Student> parentList) {
 			C206_CaseStudy.setHeader("REGISTERED PARENTS/STUDENT LIST");
-			String output = String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s %-15s\n", "Student ID", "Student Name","Grade", 
+			String output = String.format("%-10s %-15s %-15s %-15s %-10s %-10s %-20s %-15s\n", "Student ID", "Student Name","Grade", 
 					"Class","Teacher", "Parent Name", "Email", "Contact Number");
 			output += retrieveAllParentRegistration(parentList);	
 			System.out.println(output);
