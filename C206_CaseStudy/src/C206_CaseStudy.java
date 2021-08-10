@@ -156,7 +156,7 @@ public class C206_CaseStudy {
 				loginStudentParentMenu();
 			} else if (mainMenuOption == 4) { ///////////////////////////// Option 4
 				int stuPrntOption = 0;
-				while (stuPrntOption != 3) {
+				while (stuPrntOption != 3) { //xixin
 					Helper.line(30, "-");
 					System.out.println("Register for an account");
 					Helper.line(30, "-");
