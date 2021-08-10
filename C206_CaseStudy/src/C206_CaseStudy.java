@@ -170,9 +170,13 @@ public class C206_CaseStudy {
 					switch (stuPrntOption) {
 					case 1:
 						//register as student
+						//Student studentReg = studentRegister();
+						//C206_CaseStudy.addStudent(parentList, studentReg);
 						break;
 					case 2:
 						//register as parent
+						//Student parentReg = parentRegister();
+						//C206_CaseStudy.addParent(parentList, parentReg);
 						break;
 					default:
 						if (stuPrntOption != 3) {
@@ -393,10 +397,14 @@ public class C206_CaseStudy {
 		public static CCA parentRegister() { // hint for bazlyn
 			// int id, String studentName, String grade, String classId, String teacherName, String parentName,
 			// String email, int number
-
-				//Student parentReg= new Student(variables for id, studentName, grade, classId, teacherName, parentName,
-			    // email, number);
-				//return parentReg;
+			 * if (get id == variable id && get studentName.equals(variable studentName) && get grade.equals(variable grade)
+			 *                 && get teacherName.equals(variable teacherName){
+			 *      //Student parentReg= new Student(variables for id, studentName, grade, classId, teacherName, parentName,
+			        // email, number);
+				    //return parentReg;
+				     * } else {
+				     * Throw error message "Student ID is not matching etc."
+		
 					
 		} 
 		public static void addParent(ArrayList<Student> parentList, Student parentReg) {
