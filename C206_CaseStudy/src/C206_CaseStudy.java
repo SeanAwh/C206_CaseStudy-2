@@ -493,5 +493,12 @@ public class C206_CaseStudy {
 			output += retrieveAllParentRegistration(parentList);	
 			System.out.println(output);
 		}
+	public static void viewStudentRegister(ArrayList<Student> studentList) {
+			C206_CaseStudy.setHeader("REGISTERED PARENTS/STUDENT LIST");
+			String output = String.format("%-10s %-15s %-15s %-15s %-10s %-10s %-20s %-15s\n", "Student ID", "Student Name","Grade", 
+					"Class","Teacher", "Parent Name", "Email", "Contact Number");
+			output += retrieveAllStudentRegistration(parentList);	
+			System.out.println(output);
+		}
 	        
 	}
