@@ -419,5 +419,16 @@ public class C206_CaseStudy {
 			parentList.add(parentReg);
 			System.out.println("Parent account registered successful!");
 		}
-*/       
+	        public static void viewParentRegister(ArrayList<Student> parentList, Student parentReg) {
+			C206_CaseStudy.setHeader("REGISTERED PARENTS/STUDENT LIST");
+			String output = String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s %-15s\n", "Student ID", "Student Name","Grade", 
+					"Class","Teacher", "Parent Name", "Email", "Contact Number);
+			output += parentRegister(parentList);	
+			System.out.println(output);
+		}
+	        
+	}
+		
+
+       
 	}
