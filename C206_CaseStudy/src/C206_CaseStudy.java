@@ -8,7 +8,7 @@ public class C206_CaseStudy {
 		// TODO Auto-generated method stub
 		ArrayList<Student> studentList = new ArrayList<Student>();
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
-		ArrayList<Parent> parentList = new ArrayList<Parent>();
+		ArrayList<Student> parentList = new ArrayList<Student>();
 
 		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
 				"Thursday", "15:00 - 16:00", "Class room A", "Albert"));
@@ -16,7 +16,7 @@ public class C206_CaseStudy {
 				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
 
 		studentList.add(new Student(1,"John","P3","C206","Desmond")) ;
-		parentList.add(new Parent(1, "Sally", "sally@email.com", 91234321)); 
+		parentList.add(new Student(1,"John","P3","C206","Desmond","Sally","sally@email.com",91234321));
 		
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
