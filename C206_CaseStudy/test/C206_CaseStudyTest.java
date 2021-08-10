@@ -86,16 +86,18 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.addCCA(ccaList, cca2);
 		assertEquals("Test that CCA arraylist size is 2", 2, ccaList.size());
 		
-		//normal
-		C206_CaseStudy.deleteCCA(ccaList, "Lego Expert");
-		assertEquals("Test that after deleting CCA, CCA array list is empty",0, ccaList.size());
-		
 		//error
-		C206_CaseStudy.deleteCCA(ccaList, "Jewellery Making");
-		String deleteCCA= C206_CaseStudy.deleteCCA(ccaList, "Jewellery Making");
+		C206_CaseStudy.deleteCCA(ccaList,"Jewellery Making");
+		String deleteCCA= C206_CaseStudy.deleteCCA(ccaList,"Jewellery Making");
 		String errorMsg = "Invalid CCA title";
-		assertEquals("Test that error message inavlid CCA id shows if no matching title to delete", errorMsg, deleteCCA);
-	    assertTrue(ccaList.isEmpty());	
+		assertEquals("Test that error message invalid CCA title shows if no matching title to delete", errorMsg, deleteCCA);
+				
+		//normal
+		C206_CaseStudy.deleteCCA(ccaList,"Lego Expert");
+		assertEquals("Test that after deleting CCA, CCA arraylist is empty",0,ccaList.size());	
+	    
+		
+		assertTrue(ccaList.isEmpty());	
 	}
 	
 	
@@ -127,7 +129,7 @@ public class C206_CaseStudyTest {
 		C206_CaseStudy.deleteStudent(studentList,2);
 		String deleteStudent= C206_CaseStudy.deleteStudent(studentList,2);
 		String errorMsg = "Invalid student ID";
-		assertEquals("Test that error message inavlid student id shows if no matching id to delete", errorMsg, deleteStudent);
+		assertEquals("Test that error message invalid student id shows if no matching id to delete", errorMsg, deleteStudent);
 		
 		//normal
 		C206_CaseStudy.deleteStudent(studentList,1);
