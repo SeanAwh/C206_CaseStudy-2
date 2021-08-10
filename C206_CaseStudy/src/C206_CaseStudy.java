@@ -458,6 +458,7 @@ public class C206_CaseStudy {
 		       String classId = Helper.readString("Enter Student's class ID > ");
 		       String teacherName = Helper.readString("Enter teacher's name > ");
 
+		       if (id = )
 		       Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
 			   
 		       return studentReg;
