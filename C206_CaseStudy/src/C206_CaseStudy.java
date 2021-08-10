@@ -404,9 +404,9 @@ public class C206_CaseStudy {
 		       String email = Helper.readString("Enter email > ");
 		       int number = Helper.readInt("Enter contact number > ");
 		          
-		       if (get id == variable id && get studentName.equals(variable studentName) && get grade.equals(variable grade)
-			                  && get teacherName.equals(variable teacherName){
-			      Student parentReg= new Student(variables for id, studentName, grade, classId, teacherName, parentName,
+		       if (get id == id && get studentName.equals(studentName) && get grade.equals(grade)
+			                  && get teacherName.equals(teacherName){
+			      Student parentReg= new Student(id, studentName, grade, classId, teacherName, parentName,
 			        email, number);
 				    return parentReg;
 		        } else {
