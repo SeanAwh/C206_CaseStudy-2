@@ -393,17 +393,24 @@ public class C206_CaseStudy {
 		}
 		//================================= Student/Parent registration menu options =================================
 	    //////// Parent register /////////	
-/*
-		public static CCA parentRegister() { // hint for bazlyn
-			// int id, String studentName, String grade, String classId, String teacherName, String parentName,
-			// String email, int number
-			 * if (get id == variable id && get studentName.equals(variable studentName) && get grade.equals(variable grade)
-			 *                 && get teacherName.equals(variable teacherName){
-			 *      //Student parentReg= new Student(variables for id, studentName, grade, classId, teacherName, parentName,
-			        // email, number);
-				    //return parentReg;
-				     * } else {
-				     * Throw error message "Student ID is not matching etc."
+
+		public static CCA parentRegister() { //bazlyn
+		       int id = Helper.readInt("Enter ID > ");
+		       String studentName = Helper.readString("Enter name > ");
+		       String grade = Helper.readString("Enter grade > ");
+		       String classId = Helper.readString("Enter class ID > ");
+		       String teacherName = Helper.readString("Enter teacher's name > ");
+		       String parentName = Helper.readString("Enter parents' name > ");
+		       String email = Helper.readString("Enter email > ");
+		       int number = Helper.readInt("Enter contact number > ");
+		          
+		       if (get id == variable id && get studentName.equals(variable studentName) && get grade.equals(variable grade)
+			                  && get teacherName.equals(variable teacherName){
+			      Student parentReg= new Student(variables for id, studentName, grade, classId, teacherName, parentName,
+			        email, number);
+				    return parentReg;
+		        } else {
+			      System.out.println("Invalid Student ID");
 		
 					
 		} 
