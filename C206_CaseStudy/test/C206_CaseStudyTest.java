@@ -101,7 +101,7 @@ public class C206_CaseStudyTest {
 	*/
 	
 	@Test
-	public void addStudentTest() {
+	public void addStudentTest() {// Sean
 		//boundary
 		assertNotNull("Test if there is valid Student arraylist to add to", studentList);
 		assertEquals("Check that student array list is empty", 0,studentList.size());
@@ -115,7 +115,7 @@ public class C206_CaseStudyTest {
 	}
 	
 	@Test
-	public void deleteStudentTest() {
+	public void deleteStudentTest() {// Sean
 		//boundary
 		assertNotNull("Test if there is valid Student arraylist to add to", studentList);
 		assertEquals("Check that student array list is empty", 0,studentList.size());
@@ -137,7 +137,7 @@ public class C206_CaseStudyTest {
 	}
 	
 	@Test
-	public void viewStudentTest() {
+	public void viewStudentTest() {// Sean
 		//boundary
 		assertNotNull("Test if there is valid Student arraylist to add to", studentList);
 		assertEquals("Check that student array list is empty", 0,studentList.size());
