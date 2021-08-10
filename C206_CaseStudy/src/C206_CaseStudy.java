@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class C206_CaseStudy {
 
@@ -151,7 +152,7 @@ public class C206_CaseStudy {
 								break;
 							case 2:
 								// View all registered student
-								//C206_CaseStudy.viewStudentRegister(studentList);
+								C206_CaseStudy.viewStudentRegister(studentList);
 								break;
 							default:
 								if (coordOptionReg != 7) {
@@ -193,7 +194,7 @@ public class C206_CaseStudy {
 					case 1:
 						//register as student
 						Student studentReg = studentRegister();
-						C206_CaseStudy.addStudent(parentList, studentReg);
+						C206_CaseStudy.addStudent(studentList, studentReg);
 						break;
 					case 2:
 						//register as parent
@@ -456,7 +457,7 @@ public class C206_CaseStudy {
 		       String studentGrade = Helper.readString("Enter Student's grade > ");
 		       String classId = Helper.readString("Enter Student's class ID > ");
 		       String teacherName = Helper.readString("Enter teacher's name > ");
-			   
+
 		       Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
 			   
 		       return studentReg;
@@ -493,15 +494,31 @@ public class C206_CaseStudy {
 			output += retrieveAllParentRegistration(parentList);	
 			System.out.println(output);
 		}
+	    ////////View registered student /////////
+		public static String retrieveAllStudentRegistration(ArrayList<Student> studentList) { //xixin
+			String output = "";
+
+			for (int i = 0; i < studentList.size(); i++) {
+
+				int id = studentList.get(i).getId();
+				String studentName = studentList.get(i).getStudentName();
+				String grade = studentList.get(i).getGrade();
+				String classId = studentList.get(i).getClassId();
+				String teacher = studentList.get(i).getTeacherName();
+				output += String.format("%-10s %-15s %-15s %-15s %-10s\n", id ,studentName, grade, 
+						classId, teacher);
+			}
+			return output;
+		}
 	    public static void viewStudentRegister(ArrayList<Student> studentList) {
 			C206_CaseStudy.setHeader("REGISTERED PARENTS/STUDENT LIST");
-			String output = String.format("%-10s %-15s %-15s %-15s %-10s %-10s %-20s %-15s\n", "Student ID", "Student Name","Grade", 
-					"Class","Teacher", "Parent Name", "Email", "Contact Number");
-			output += retrieveAllStudentRegistration(parentList);	
+			String output = String.format("%-10s %-15s %-15s %-15s %-10s\n", "Student ID", "Student Name","Grade", 
+					"Class","Teacher");
+			output += retrieveAllStudentRegistration(studentList);	
 			System.out.println(output);
 		}
-	//Delete parent//
-	     public static String deleteParent(ArrayList<Student> parentList, int id) {
+	    //Delete parent//
+	    public static String deleteParent(ArrayList<Student> parentList, int id) {
 		String info ="";
 		for(int i = 0; i < parentList.size(); i++) {
 			if (parentList.get(i).getId() == id) {
@@ -516,3 +533,4 @@ public class C206_CaseStudy {
 		return info;
 	        
 	}
+}

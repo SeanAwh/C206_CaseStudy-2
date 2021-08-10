@@ -8,6 +8,7 @@ public class Student {
 	private String parentName;
 	private String email;
 	private int number;
+	private int uniqueId;
 	
 	////////// parent register constructor //////////
 	public Student(int id, String studentName, String grade, String classId, String teacherName, String parentName,
@@ -20,12 +21,12 @@ public class Student {
 		this.teacherName = teacherName;
 		this.parentName = parentName;
 		this.email = email;
-		this.number = number;
+		this.number = number;;
 	}
 
 	////////// student register constructor //////////
 	public Student(int id, String studentName, String grade, String classId, String teacherName, String email,
-			int number) {
+			int number, int uniqueId) {
 		super();
 		this.id = id;
 		this.studentName = studentName;
@@ -34,6 +35,7 @@ public class Student {
 		this.teacherName = teacherName;
 		this.email = email;
 		this.number = number;
+		this.uniqueId = uniqueId;
 	}
 	
 	////////// add student constructor //////////
@@ -109,7 +111,11 @@ public class Student {
 	public void setNumber(int number) {
 		this.number = number;
 	}
-	
-	
-	
+	public int getUniqueId() {
+		return uniqueId;
+	}
+
+	public void setUniqueId(int uniqueId) {
+		this.uniqueId = uniqueId;
+	}
 }
