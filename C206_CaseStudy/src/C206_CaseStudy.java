@@ -155,10 +155,33 @@ public class C206_CaseStudy {
 			} else if (mainMenuOption == 3) { ///////////////////////////// Option 3
 				loginStudentParentMenu();
 			} else if (mainMenuOption == 4) { ///////////////////////////// Option 4
-				Helper.line(30, "-");
-				System.out.println("Register for an account");
-				Helper.line(30, "-");
-				//continue?
+				int stuPrntOption = 0;
+				while (stuPrntOption != 3) {
+					Helper.line(30, "-");
+					System.out.println("Register for an account");
+					Helper.line(30, "-");
+					
+					System.out.println("1. Register as student");
+					System.out.println("2. Register as parent");
+					System.out.println("3. Quit");
+					
+					stuPrntOption = Helper.readInt("Enter option: > ");
+					
+					switch (stuPrntOption) {
+					case 1:
+						//register as student
+						break;
+					case 2:
+						//register as parent
+						break;
+					default:
+						if (stuPrntOption != 3) {
+							System.out.println("Invalid input");
+						}
+						break;
+					}	
+				}
+
 			} else if (mainMenuOption == 5) { ///////////////////////////// Option 5
 				C206_CaseStudy.viewAllCCA(ccaList);
 			} else if (mainMenuOption == 6) { ///////////////////////////// Option 6
@@ -222,16 +245,6 @@ public class C206_CaseStudy {
 		System.out.println("1. Register for CCA");
 		System.out.println("2. View registered CCA");
 		System.out.println("3. Drop CCA");
-	}
-	
-	public static void registerToSystemMenu() { // xixin
-		Helper.line(30, "-");
-		System.out.println("School Account Registration System");
-		Helper.line(30, "-");
-
-		System.out.println("1. Register as student");
-		System.out.println("2. Register as parent");
-		System.out.println("3. Quit");
 	}
 	
 	
