@@ -162,7 +162,7 @@ public class C206_CaseStudyTest {
 	}
 	@After
 	public void tearDown() throws Exception {
-		//cca1 = null;
+		cca1 = null;
 		cca2 = null;
 		ccaList = null;
 	}

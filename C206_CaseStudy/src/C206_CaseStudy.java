@@ -8,6 +8,7 @@ public class C206_CaseStudy {
 		// TODO Auto-generated method stub
 		ArrayList<Student> studentList = new ArrayList<Student>();
 		ArrayList<CCA> ccaList = new ArrayList<CCA>();
+		ArrayList<Parent> parentList = new ArrayList<Parent>();
 
 		ccaList.add(new CCA("Lego Expert", "Designing and building using Lego", 25, 
 				"Thursday", "15:00 - 16:00", "Class room A", "Albert"));
@@ -15,6 +16,8 @@ public class C206_CaseStudy {
 				"Wednesday","15:00 - 16:00", "Class room B", "Malvin"));
 
 		studentList.add(new Student(1,"John","P3","C206","Desmond")) ;
+		parentList.add(new Parent(1, "Sally", "sally@email.com", 91234321)); 
+		
 		int mainMenuOption = 0;
 		while (mainMenuOption != 7) {
 			mainMenu();
@@ -152,7 +155,10 @@ public class C206_CaseStudy {
 			} else if (mainMenuOption == 3) { ///////////////////////////// Option 3
 				loginStudentParentMenu();
 			} else if (mainMenuOption == 4) { ///////////////////////////// Option 4
-				//Registration to system
+				Helper.line(30, "-");
+				System.out.println("Register for an account");
+				Helper.line(30, "-");
+				//continue?
 			} else if (mainMenuOption == 5) { ///////////////////////////// Option 5
 				C206_CaseStudy.viewAllCCA(ccaList);
 			} else if (mainMenuOption == 6) { ///////////////////////////// Option 6
@@ -210,13 +216,24 @@ public class C206_CaseStudy {
 
 	public static void loginStudentParentMenu() { // Omar
 		Helper.line(30, "-");
-		System.out.println("School CCA Registration System - Coordinator");
+		System.out.println("School CCA Registration System");
 		Helper.line(30, "-");
 
 		System.out.println("1. Register for CCA");
 		System.out.println("2. View registered CCA");
 		System.out.println("3. Drop CCA");
 	}
+	
+	public static void registerToSystemMenu() { // xixin
+		Helper.line(30, "-");
+		System.out.println("School Account Registration System");
+		Helper.line(30, "-");
+
+		System.out.println("1. Register as student");
+		System.out.println("2. Register as parent");
+		System.out.println("3. Quit");
+	}
+	
 	
 	//================================= Admin menu options =================================
 	////////// Admin add student method //////////
