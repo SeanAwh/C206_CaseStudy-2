@@ -152,10 +152,13 @@ public class C206_CaseStudy {
 			} else if (mainMenuOption == 3) { ///////////////////////////// Option 3
 				loginStudentParentMenu();
 			} else if (mainMenuOption == 4) { ///////////////////////////// Option 4
-				manageCCAMenu();
-			}
+				//Registration to system
+			} else if (mainMenuOption == 5) { ///////////////////////////// Option 5
+				C206_CaseStudy.viewAllCCA(ccaList);
+			} else if (mainMenuOption == 6) { ///////////////////////////// Option 6
+			    //View all CCA category
 		}
-
+		}
 	}
 
 	////////// Main menu //////////
