@@ -428,7 +428,7 @@ public class C206_CaseStudy {
 		//================================= Student/Parent registration menu options =================================
 	    //////// Parent register /////////	
 
-		public static Student parentRegister() { //bazlyn
+		public static Student parentRegister() { //bazlyn, xixin
 		       int id = Helper.readInt("Enter Student's ID > ");
 		       String studentName = Helper.readString("Enter Student's name > ");
 		       String studentGrade = Helper.readString("Enter Student's grade > ");
@@ -438,12 +438,19 @@ public class C206_CaseStudy {
 		       String email = Helper.readString("Enter your email > ");
 		       int number = Helper.readInt("Enter contact number > ");
 			   
-		       //Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
-		       Student parentReg= new Student(id, studentName, studentGrade, classId, teacherName, parentName,
-			        email, number);
-			   
-		       return parentReg;
-						
+		     //anybody can help out wif this part?
+		       // check id against database
+		       if (studentGrade != "P4" || studentGrade != "P5" || studentGrade != "P6") {
+		    	   student = C206_CaseStudy.ccaRegIdGenerator(student);						
+		    	   System.out.println("Your CCA Registration ID is: " + student.getUniqueId);
+		    	   
+		    	   Student parentReg= new Student(id, studentName, studentGrade, classId, teacherName, parentName,
+					        email, number);
+					   
+				   return parentReg;
+		       } else {
+		    	   System.out.println("Please ask your child to register.");
+		       }					
 		} 
 		public static void addParent(ArrayList<Student> parentList, Student parentReg) {
 					
@@ -457,13 +464,20 @@ public class C206_CaseStudy {
 		       String studentGrade = Helper.readString("Enter Student's grade > ");
 		       String classId = Helper.readString("Enter Student's class ID > ");
 		       String teacherName = Helper.readString("Enter teacher's name > ");
-
-		       if (id = )
-		       Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
-			   
-		       return studentReg;
-							
-		} 
+		       
+		       //anybody can help out wif this part?
+		       //check id against database
+		       if (studentGrade != "P3" || studentGrade != "P2" || studentGrade != "P1") {
+		    	   student = C206_CaseStudy.ccaRegIdGenerator(student);						
+		    	   System.out.println("Your CCA Registration ID is: " + student.getUniqueId);
+		    	   
+		    	   Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
+		    	   return studentReg;
+		       } else {
+		    	   System.out.println("Please ask your parent to register for you.");
+		       }
+		}
+		
 		public static void addRegStudent(ArrayList<Student> studentList, Student studentReg) {
 			
 			studentList.add(studentReg);
@@ -519,7 +533,7 @@ public class C206_CaseStudy {
 			System.out.println(output);
 		}
 	    //Delete parent//
-	    public static String deleteParent(ArrayList<Student> parentList, int id) {
+	    public static String deleteParent(ArrayList<Student> parentList, int id) { //bazlyn
 		String info ="";
 		for(int i = 0; i < parentList.size(); i++) {
 			if (parentList.get(i).getId() == id) {
@@ -534,4 +548,30 @@ public class C206_CaseStudy {
 		return info;
 	        
 	}
+
+	public static Student ccaRegIdGenerator(Student student) { //xixin
+			int uniqueId = 8;
+			
+			String upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			String lowerCase = "abcdefghijklmnopqrstuvwxyz";
+			String numbers = "0123456789";
+			
+			String uniqueid = upperCase + lowerCase + numbers;
+			
+			Random randomId = new Random();
+			
+			char[] uniqueIDReg = new char[uniqueId];
+			
+			String newUniqueId = "";
+			
+			for (int i = 0; i < uniqueId; i++) {
+				
+				uniqueIDReg[i] = uniqueid.charAt(randomId.nextInt(uniqueid.length()));
+				newUniqueId += uniqueIDReg[i];
+				
+			}
+			student.setUniqueId(newUniqueId);
+			return student;
+		}
+		
 }
