@@ -303,7 +303,7 @@ public class C206_CaseStudy {
 	public static void addStudent(ArrayList<Student> studentList, Student stud) {
 		
 		studentList.add(stud);
-		System.out.println("Student added");
+		System.out.println("Student added successfully");
 	}
 
 	///////// Admin View all students /////////
