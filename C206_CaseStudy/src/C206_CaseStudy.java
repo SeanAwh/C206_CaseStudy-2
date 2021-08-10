@@ -413,7 +413,7 @@ public class C206_CaseStudy {
 		public static String deleteCCA(ArrayList<CCA> ccaList, String title) {
 			String displayMssg ="";
 			for(int i = 0; i < ccaList.size(); i++) {
-				if (ccaList.get(i).getTitle() == title) {
+				if (ccaList.get(i).getTitle().equals(title)) {
 					ccaList.remove(i);
 					displayMssg += "Removed CCA: "+ title;
 					break;
