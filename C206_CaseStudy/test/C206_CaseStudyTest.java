@@ -34,39 +34,37 @@ public class C206_CaseStudyTest {
 	}
 	@Test
 	public void addCCATest() { //xixin
-		// CCA list is not null, so that can add a new cca - boundary
+		// boundary
 		assertNotNull("Check if there is valid CCA arraylist to add to", ccaList);
 		assertEquals("Check that CCA arraylist size is 0", 0, ccaList.size());
 		
-		//Given an empty list, after adding 1 cca, the size of the list is 1 - normal
-		//The cca just added is as same as the first cca of the list
+		// normal
 		C206_CaseStudy.addCCA(ccaList, cca1);
 		assertEquals("Check that CCA arraylist size is 1", 1, ccaList.size());
 		assertSame("Check that CCA is added", cca1, ccaList.get(0));
 		
-		//Add another cca. test The size of the list is 2? -normal
-		//The cca just added is as same as the second cca of the list
+		// normal
 		C206_CaseStudy.addCCA(ccaList, cca2);
 		assertEquals("Check that Camcorder arraylist size is 2", 2, ccaList.size());
 		assertSame("Check that Camcorder is added", cca2, ccaList.get(1));
 	}
 	@Test
 	public void retrieveAllCCATest() { //xixin
-		// Test if CCA list is not null but empty -boundary
+		// boundary
 		assertNotNull("Test if there is valid CCA arraylist to retrieve cca", ccaList);
 		assertEquals("Check that CCA arraylist size is 0", 0, ccaList.size());
 		
-		//test if the list of CCAs retrieved is empty - boundary
+		// error
 		String allCCA= C206_CaseStudy.retrieveAllCCA(ccaList);
-		String testOutput = "";
-		assertEquals("Check that ViewAllCCAlist", testOutput, allCCA);
+		String testOutput = "Student list is empty";
+		assertEquals("Test that if student array list is empty show CCA list is empty", testOutput, allCCA);
 		
-		//Given an empty list, after adding 2 CCAs, test if the size of the list is 2 - normal
+		// normal
 		C206_CaseStudy.addCCA(ccaList, cca1);
 		C206_CaseStudy.addCCA(ccaList, cca2);
 		assertEquals("Test that CCA arraylist size is 2", 2, ccaList.size());
 		
-		//test if the expected output string same as the list of ccas retrieved 	
+		// normal
 		allCCA= C206_CaseStudy.retrieveAllCCA(ccaList);
 		testOutput = String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s\n", "Lego Expert", "Designing and building using Lego", 25, 
 				"Thursday", "15:00 - 16:00", "Class room A", "Albert");
@@ -76,29 +74,29 @@ public class C206_CaseStudyTest {
 		assertEquals("Test that ViewAllCCAlist", testOutput, allCCA);
 		
 	}
-	/*
+	
 	@Test
 	public void deleteCCATest() { // xixin
 		//boundary
 		assertNotNull("test if there is valid CCA arraylist to delete from", ccaList);
 		
-		//Given an empty list, after adding 2 CCAs, - normal
-		//The size of the list is 2?
+		//normal
 		C206_CaseStudy.addCCA(ccaList, cca1);
 		C206_CaseStudy.addCCA(ccaList, cca2);
 		assertEquals("Test that CCA arraylist size is 2", 2, ccaList.size());
-		// normal
-		Boolean yesDelete = C206_CaseStudy.coordDeleteCCA(ccaList);
-		assertTrue("Test if a cca can be deleted?", yesDelete);
-		assertEquals("Test that CCA arraylist size is 1", 1, ccaList.size());
-
-		//normal condition
-		yesDelete = C206_CaseStudy.coordDeleteCCA(ccaList);
-		assertTrue("Test if a cca can be deleted?", yesDelete);
-		assertEquals("Test that CCA arraylist size is 0", 0, ccaList.size());
 		
+		//normal
+		C206_CaseStudy.deleteCCA(ccaList, "Lego Expert");
+		assertEquals("Test that after deleting student, student array list is empty",0,studentList.size());
+		
+		//error
+		C206_CaseStudy.deleteCCA(ccaList, "Jewellery Making");
+		String deleteCCA= C206_CaseStudy.deleteCCA(ccaList, "Jewellery Making");
+		String errorMsg = "Invalid student ID";
+		assertEquals("Test that error message inavlid student id shows if no matching id to delete", errorMsg, deleteCCA);
+	    assertTrue(ccaList.isEmpty());	
 	}
-	*/
+	
 	
 	@Test
 	public void addStudentTest() {// Sean
@@ -161,7 +159,7 @@ public class C206_CaseStudyTest {
 	}
 	@After
 	public void tearDown() throws Exception {
-		cca1 = null;
+		//cca1 = null;
 		cca2 = null;
 		ccaList = null;
 	}

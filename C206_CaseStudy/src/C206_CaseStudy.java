@@ -334,19 +334,24 @@ public class C206_CaseStudy {
 			System.out.println("CCA added!");
 		}
         ////////Coordinator Delete a CCA /////////
-		public static void coordDeleteCCA(ArrayList<CCA> ccaList) { // 
-			viewAllCCA(ccaList);
+		public static void coordDeleteCCA(ArrayList<CCA> ccaList) { // Sean
+			System.out.println(retrieveAllCCA(ccaList));
 			System.out.println("---------Delete CCA----------");
-			String ccaTitle = Helper.readString("CCA Title: > ");
+			String ccaTitle = Helper.readString("Enter CCA Title to delete: > ");
+			System.out.println(deleteCCA(ccaList, ccaTitle));
+		}	
+		public static String deleteCCA(ArrayList<CCA> ccaList, String title) {
+			String displayMssg ="";
 			for(int i = 0; i < ccaList.size(); i++) {
-				if (ccaList.get(i).getTitle().equals(ccaTitle)) {
+				if (ccaList.get(i).getTitle() == title) {
 					ccaList.remove(i);
-					System.out.println("Removed cca: "+ccaTitle);
+					displayMssg += "Removed CCA: "+ title;
 					break;
 				}
 				else {
-					System.out.println("Invalid cca title");
+					displayMssg = "Invalid CCA title";
 				}
 			}
+			return displayMssg;
 		}
 }
