@@ -170,13 +170,13 @@ public class C206_CaseStudy {
 					switch (stuPrntOption) {
 					case 1:
 						//register as student
-						//Student studentReg = studentRegister();
-						//C206_CaseStudy.addStudent(parentList, studentReg);
+						Student studentReg = studentRegister();
+						C206_CaseStudy.addStudent(parentList, studentReg);
 						break;
 					case 2:
 						//register as parent
-						//Student parentReg = parentRegister();
-						//C206_CaseStudy.addParent(parentList, parentReg);
+						Student parentReg = parentRegister();
+						C206_CaseStudy.addParent(parentList, parentReg);
 						break;
 					default:
 						if (stuPrntOption != 3) {
@@ -394,41 +394,53 @@ public class C206_CaseStudy {
 		//================================= Student/Parent registration menu options =================================
 	    //////// Parent register /////////	
 
-		public static CCA parentRegister() { //bazlyn
-		       int id = Helper.readInt("Enter ID > ");
-		       String studentName = Helper.readString("Enter name > ");
-		       String grade = Helper.readString("Enter grade > ");
-		       String classId = Helper.readString("Enter class ID > ");
+		public static Student parentRegister() { //bazlyn
+		       int id = Helper.readInt("Enter Student's ID > ");
+		       String studentName = Helper.readString("Enter Student's name > ");
+		       String studentGrade = Helper.readString("Enter Student's grade > ");
+		       String classId = Helper.readString("Enter Student's class ID > ");
 		       String teacherName = Helper.readString("Enter teacher's name > ");
-		       String parentName = Helper.readString("Enter parents' name > ");
-		       String email = Helper.readString("Enter email > ");
+		       String parentName = Helper.readString("Enter your name > ");
+		       String email = Helper.readString("Enter your email > ");
 		       int number = Helper.readInt("Enter contact number > ");
-		          
-		       if (get id == id && get studentName.equals(studentName) && get grade.equals(grade)
-			                  && get teacherName.equals(teacherName){
-			      Student parentReg= new Student(id, studentName, grade, classId, teacherName, parentName,
+			   
+		       //Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
+		       Student parentReg= new Student(id, studentName, studentGrade, classId, teacherName, parentName,
 			        email, number);
-				    return parentReg;
-		        } else {
-			      System.out.println("Invalid Student ID");
-		
-					
+			   
+		       return parentReg;
+						
 		} 
 		public static void addParent(ArrayList<Student> parentList, Student parentReg) {
 					
 			parentList.add(parentReg);
 			System.out.println("Parent account registered successful!");
 		}
-	        public static void viewParentRegister(ArrayList<Student> parentList, Student parentReg) {
+		 //////// Student register /////////	
+		public static Student studentRegister() { //bazlyn, xixin
+		       int id = Helper.readInt("Enter Student's ID > ");
+		       String studentName = Helper.readString("Enter Student's name > ");
+		       String studentGrade = Helper.readString("Enter Student's grade > ");
+		       String classId = Helper.readString("Enter Student's class ID > ");
+		       String teacherName = Helper.readString("Enter teacher's name > ");
+			   
+		       Student studentReg = new Student(id, studentName, studentGrade, classId, teacherName);
+			   
+		       return studentReg;
+							
+		} 
+		public static void addRegStudent(ArrayList<Student> studentList, Student studentReg) {
+			
+			studentList.add(studentReg);
+			System.out.println("Student account registered successful!");
+		}
+        ////////View registered parent/student /////////
+	    public static void viewParentRegister(ArrayList<Student> parentList, Student parentReg) {
 			C206_CaseStudy.setHeader("REGISTERED PARENTS/STUDENT LIST");
 			String output = String.format("%-20s %-45s %-15s %-15s %-20s %-15s %-15s %-15s\n", "Student ID", "Student Name","Grade", 
-					"Class","Teacher", "Parent Name", "Email", "Contact Number);
+					"Class","Teacher", "Parent Name", "Email", "Contact Number");
 			output += parentRegister(parentList);	
 			System.out.println(output);
 		}
 	        
-	}
-		
-
-       
 	}
