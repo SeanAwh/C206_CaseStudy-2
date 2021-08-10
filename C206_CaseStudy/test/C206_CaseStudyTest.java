@@ -54,10 +54,11 @@ public class C206_CaseStudyTest {
 		assertNotNull("Test if there is valid CCA arraylist to retrieve cca", ccaList);
 		assertEquals("Check that CCA arraylist size is 0", 0, ccaList.size());
 		
-		// error
+		// boundary
 		String allCCA= C206_CaseStudy.retrieveAllCCA(ccaList);
-		String testOutput = "Student list is empty";
-		assertEquals("Test that if student array list is empty show CCA list is empty", testOutput, allCCA);
+		String testOutput = "";
+		assertEquals("Check that ViewAllCCAlist", testOutput, allCCA);
+		
 		
 		// normal
 		C206_CaseStudy.addCCA(ccaList, cca1);
@@ -87,13 +88,13 @@ public class C206_CaseStudyTest {
 		
 		//normal
 		C206_CaseStudy.deleteCCA(ccaList, "Lego Expert");
-		assertEquals("Test that after deleting student, student array list is empty",0,studentList.size());
+		assertEquals("Test that after deleting CCA, CCA array list is empty",0, ccaList.size());
 		
 		//error
 		C206_CaseStudy.deleteCCA(ccaList, "Jewellery Making");
 		String deleteCCA= C206_CaseStudy.deleteCCA(ccaList, "Jewellery Making");
-		String errorMsg = "Invalid student ID";
-		assertEquals("Test that error message inavlid student id shows if no matching id to delete", errorMsg, deleteCCA);
+		String errorMsg = "Invalid CCA title";
+		assertEquals("Test that error message inavlid CCA id shows if no matching title to delete", errorMsg, deleteCCA);
 	    assertTrue(ccaList.isEmpty());	
 	}
 	
