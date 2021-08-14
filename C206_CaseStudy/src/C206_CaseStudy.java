@@ -4,7 +4,7 @@ import java.util.Random;
 public class C206_CaseStudy {
 
 	
-//
+//Testing pull
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		ArrayList<Student> studentList = new ArrayList<Student>();
